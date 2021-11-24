@@ -8,3 +8,8 @@ This will be very 'Simple OS'
     </ul>
   </li>
 </ul>
+#Build
+
+```bash
+make all
+```
