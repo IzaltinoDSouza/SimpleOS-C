@@ -1,6 +1,6 @@
 #include <types.h>
 
-void print(const char *string,Color forecolor,Color backcolor){
+void print(const char *str,Color forecolor,Color backcolor){
 	/*
 				Text Mode 16 bit
 					Layout
@@ -10,9 +10,9 @@ void print(const char *string,Color forecolor,Color backcolor){
     */
 
     u16 * video_addr = (u16 *)0xB8000;
-    while( *string != '\0' )
+    while( *str != '\0' )
     {
-        *video_addr++ = backcolor << 12 | forecolor << 8 | *string++;
+        *video_addr++ = backcolor << 12 | forecolor << 8 | *str++;
     }
 }
 void clear(){
@@ -33,6 +33,6 @@ void clear(){
 void _kernel(struct multiboot *mboot_ptr)
 {
 	clear();
-    print("Hello World",WHITE,BLACK);
+    print("Hello World",LIGHT_GREEN,BLACK);
 }
 
